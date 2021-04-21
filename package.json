@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.52.0",
     "trello-node-api": "^0.0.9"
   }
 }
