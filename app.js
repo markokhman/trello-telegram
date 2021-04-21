@@ -1,5 +1,8 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 var Trello = require('trello-node-api')(process.env.TRELLO_API_KEY, process.env.TRELLO_TOKEN);
-var credentials = require('creds.js');
+
 async function start() {
     let cards = await Trello.board.searchCards('8hEPRQe7');
     cards.forEach(card => {
@@ -9,4 +12,5 @@ async function start() {
     });
     console.log();
 }
+
 start()
