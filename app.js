@@ -5,7 +5,7 @@ const Trello = require('trello-node-api')(process.env.TRELLO_API_KEY, process.en
 const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, {polling: true});
-const allowedChats = [59608113,-480533377]
+const allowedChats = [ 59608113, -480533377 ]
 
 async function getCardsFromList(boardId, listId) {
     let cards = await Trello.board.searchCards(boardId);
@@ -39,5 +39,7 @@ bot.onText(/\/daily/, async (msg, match) => {
         let message = `TODO (${toDoCards.length}) In Progress (${inProcessCards.length})\n\n\nTODO:\n${messageTodo}\n\nIn Progress:\n${messageInProcess}`
         bot.sendMessage(chatId, message);
     }
+
+    // Check
 
 });
