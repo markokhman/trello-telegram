@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "preinstall": "npm install pm2 -g",
-    "start": "pm2 start app.js --name trellotg",
+    "start": "pm2 start app.js --name trellotg && pm2 log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
