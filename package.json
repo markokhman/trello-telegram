@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "pm2 start app.js --name trellotg",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,6 +12,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "node-telegram-bot-api": "^0.52.0",
+    "pm2": "^4.5.6",
     "trello-node-api": "^0.0.9"
   }
 }
