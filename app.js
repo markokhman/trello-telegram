@@ -76,12 +76,27 @@ bot.onText(/\/stuck/, async (msg, match) => {
 
 });
 
+bot.onText(/\/now/, async (msg, match) => {
+
+    const chatId = msg.chat.id;
+    if (allowedChats.includes(chatId)) {
+        const inProcessCards = await getCardsFromList('8hEPRQe7','605b37f3a83d410f73a293c1');
+
+        let messageProcess = await prepareCardsToMessage(inProcessCards);
+
+        let message = `Following tasks are in work right now:\n${messageProcess}`
+        bot.sendMessage(chatId, message);
+    } else {
+        bot.sendMessage(chatId, 'This chat is not authorised to access Trello data.');
+    }
+
+});
+
 // TODO
 // Webhook for integration with other services
 // New command /now - shows all the tasks in process
 // New command /report - sends all tasks from Done list
 // Configration - configure bot in private conversation to set in which chats he can answer
 // If a new person texts him - he provides chat id and bot owner can add this chat id to a list by sending it
-// New command /stuck - sends all the tasks from Stuck list
 // Must come up with a way of attaching some commmand to specific list
 // Settings must be stored in a local json file, can be migrared instantly 
